@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vrindavan Yatra 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+Devanagari:wght@300;400;600&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #E8651A;
+    --deep-saffron: #C4500F;
+    --gold: #D4A017;
+    --cream: #FDF6E3;
+    --warm-white: #FFF9F0;
+    --dark: #2C1A0E;
+    --muted: #7A5C3E;
+    --lotus-pink: #E8A0A0;
+    --temple-red: #8B1A1A;
+    --leaf-green: #4A6741;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--cream);
+    color: var(--dark);
+    font-family: 'Crimson Pro', Georgia, serif;
+    overflow-x: hidden;
+    font-size: 17px;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(ellipse at 60% 40%, #f5c77e 0%, #e8851a 40%, #8B1A1A 100%);
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(255,255,255,0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06) 0%, transparent 30%);
+  }
+
+  .mandala {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.12);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: spin 60s linear infinite;
+  }
+  .mandala::before {
+    content: '';
+    position: absolute;
+    inset: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.10);
+  }
+  .mandala::after {
+    content: '';
+    position: absolute;
+    inset: 60px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+  .lotus-row {
+    display: flex; gap: 1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.2s forwards;
+  }
+  .petal { font-size: 1.4rem; color: rgba(255,255,255,0.7); }
+
+  .hero-eyebrow {
+    font-family: 'Noto Serif Devanagari', serif;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.4s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    color: #fff;
+    line-height: 1.05;
+    font-weight: 700;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.6s forwards;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+  }
+
+  .hero-title em {
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.55em;
+    color: #f5e0a0;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-dates {
+    margin-top: 1.5rem;
+    padding: 0.6rem 2rem;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 2px;
+    color: rgba(255,255,255,0.9);
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.8s forwards;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    animation: bounce 2s ease infinite;
+  }
+  @keyframes bounce {
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(6px); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(20px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+
+  /* MAIN CONTENT */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* DAY BLOCK */
+  .day-block {
+    padding: 5rem 0;
+    border-bottom: 1px solid rgba(196,80,15,0.15);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: revealDay 0.8s ease forwards;
+  }
+  .day-block:nth-child(1){ animation-delay: 0.1s; }
+  .day-block:nth-child(2){ animation-delay: 0.2s; }
+  .day-block:nth-child(3){ animation-delay: 0.3s; }
+  .day-block:nth-child(4){ animation-delay: 0.4s; }
+
+  @keyframes revealDay {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .day-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .day-number {
+    flex-shrink: 0;
+    width: 72px; height: 72px;
+    background: var(--saffron);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Playfair Display', serif;
+  }
+  .day-number .num {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .day-number .lbl {
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  .day-meta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+  }
+  .day-meta .date-tag {
+    display: inline-block;
+    margin-top: 0.4rem;
+    padding: 0.2rem 0.8rem;
+    background: rgba(212,160,23,0.15);
+    border: 1px solid var(--gold);
+    border-radius: 2px;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--deep-saffron);
+  }
+
+  /* TIMELINE SECTIONS */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .time-slot {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .time-label {
+    text-align: right;
+    padding-top: 0.15rem;
+  }
+  .time-label .badge {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .badge-morning { background: #FFF3CD; color: #856404; border: 1px solid #FFD54F; }
+  .badge-afternoon { background: #FFE0CC; color: #7A3B00; border: 1px solid #FF9966; }
+  .badge-evening { background: #3D1A6E22; color: #4a1080; border: 1px solid #9B59B6; }
+  .badge-all { background: #E8F5E9; color: #1B5E20; border: 1px solid #81C784; }
+
+  .time-label .time-text {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+    font-style: italic;
+  }
+
+  .slot-content {
+    border-left: 2px solid rgba(196,80,15,0.2);
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  .slot-content::before {
+    content: '';
+    position: absolute;
+    left: -5px; top: 8px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--saffron);
+  }
+
+  .place-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .place-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .place-icon {
+    font-size: 1.1rem;
+    margin-top: 0.05rem;
+    flex-shrink: 0;
+  }
+
+  .place-name {
+    font-size: 1.05rem;
+    color: var(--dark);
+    font-weight: 400;
+    line-height: 1.3;
+  }
+
+  .place-name .note {
+    display: block;
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 0.1rem;
+  }
+
+  .highlight-badge {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.1rem 0.45rem;
+    background: #8B1A1A;
+    color: white;
+    border-radius: 3px;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+
+  /* SPECIAL CARDS */
+  .info-card {
+    margin: 1rem 0 0;
+    padding: 1rem 1.2rem;
+    background: linear-gradient(135deg, rgba(212,160,23,0.08), rgba(232,101,26,0.06));
+    border: 1px solid rgba(212,160,23,0.3);
+    border-radius: 4px;
+    font-size: 0.88rem;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* ARRIVAL SECTION */
+  .arrival-banner {
+    background: linear-gradient(135deg, var(--saffron), var(--deep-saffron));
+    color: white;
+    padding: 2rem 2.5rem;
+    border-radius: 4px;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .arrival-icon { font-size: 2.5rem; }
+  .arrival-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+  }
+  .arrival-text p { font-size: 0.9rem; opacity: 0.88; line-height: 1.5; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--dark);
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+  }
+  .footer .om {
+    font-family: 'Noto Serif Devanagari', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .footer p { line-height: 1.8; }
+
+  /* DIVIDER */
+  .ornament {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin: 1.5rem 0;
+    letter-spacing: 0.5rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="mandala"></div>
+  <div class="lotus-row">
+    <span class="petal">🪷</span>
+    <span class="petal">🌸</span>
+    <span class="petal">🪷</span>
+  </div>
+  <p class="hero-eyebrow">राधे राधे · Radhe Radhe · राधे राधे</p>
+  <h1 class="hero-title">
+    Vrindavan Yatra
+    <em>Mathura · Govardhan · Barsana · Gokul</em>
+  </h1>
+  <div class="hero-dates">20 March – 23 March 2025</div>
+  <p class="scroll-hint">↓ scroll to explore ↓</p>
+</section>
+
+<!-- CONTENT -->
+<main style="background: var(--warm-white);">
+<div class="container">
+
+  <!-- DAY 1 -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">
+        <span class="num">1</span>
+        <span class="lbl">Day</span>
+      </div>
+      <div class="day-meta">
+        <h2>Arrival & Vrindavan Darshan</h2>
+        <span class="date-tag">20 March 2025 · Thursday</span>
+      </div>
+    </div>
+
+    <div class="arrival-banner">
+      <div class="arrival-icon">🚂</div>
+      <div class="arrival-text">
+        <h3>Arrive Mathura Junction · 9:30 AM</h3>
+        <p>Head straight to Vrindavan hostel / dharamshala to freshen up and drop luggage. Plan to be settled before noon for morning temple darshan.</p>
+      </div>
+    </div>
+
+    <div class="timeline">
+
+      <!-- MORNING -->
+      <div class="time-slot">
+        <div class="time-label">
+          <span class="badge badge-morning">🌅 Morning</span>
+          <span class="time-text">Before 12:00 PM</span>
+        </div>
+        <div class="slot-content">
+          <ul class="place-list">
+            <li class="place-item">
+              <span class="place-icon">🛕</span>
+              <span class="place-name">
+                Radha Raman Temple
+                <span class="note">One of the most revered ancient temples of Vrindavan · self-manifested deity</span>
+              </span>
+            </li>
+            <li class="place-item">
+              <span class="place-icon">🛕</span>
+              <span class="place-name">
+                Radha Vallabh Temple
+                <span class="note">400-year-old temple dedicated to Radha Vallabh · serene & less crowded in morning</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- AFTERNOON -->
+      <div class="time-slot">
+        <div class="time-label">
+          <span class="badge badge-afternoon">☀️ Afternoon</span>
+          <span class="time-text">12:00 PM – 4:00 PM</span>
+        </div>
+        <div class="slot-content">
+          <ul class="place-list">
+            <li class="place-item">
+              <span class="place-icon">⛰️</span>
+              <span class="place-name">
+                Vaishno Devi Temple
+                <span class="note">Miniature replica of the Jammu shrine · popular pitstop</span>
+              </span>
+            </li>
+            <li class="place-item">
+              <span class="place-icon">🛕</span>
+              <span class="place-name">
+                ISKCON Vrindavan
+                <span class="note">Grand temple complex · Bhagwad Gita museum · great for lunch prasad</span>
+              </span>
+            </li>
+            <li class="place-item">
+              <span class="place-icon">🌿</span>
+              <span class="place-name">
+                Nidhivan
+                <span class="note">Sacred forest where Krishna is believed to perform Raas Leela at night · mystical atmosphere</span>
+              </span>
+            </li>
+            <li class="place-item">
+              <span class="place-icon">🛕</span>
+              <span class="place-name">
+                Ranganath Temple (Rangji)
+                <span class="note">South Indian Vaishnava style · stunning architecture blend · largest temple of Vrindavan</span>
+              </span>
+            </li>
+            <li class="place-item">
+              <span class="place-icon">🌊</span>
+              <span class="place-name">
+                Yamuna Marg
+                <span class="note">Evening walk along the ghats · serene Yamuna view</span>
+              </span>
+            </li>
+            <li class="place-item">
+              <span class="place-icon">🛍️</span>
+              <span class="place-name">
+                Shopping & Street Food
+                <span class="note">Loi Bazaar for pichkaris, jewelry, tilaks · try mathura peda & kachori</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- EVENING -->
+      <div class="time-slot">
+        <div class="time-label">
+          <span class="badge badge-evening">🌆 Evening</span>
+          <span class="time-text">4:00 PM – 8:00 PM</span>
+        </div>
+        <div class="slot-content">
+          <ul class="place-list">
+            <li class="place-item">
+              <span class="place-icon">🔱</span>
+              <span class="place-name">
+                Gopeshwar Mahadev Temple
+                <span class="note">Only Shiva temple in Vrindavan · unique legend of Shiva attending Raas Leela</span>
+              </span>
+            </li>
+            <li class="place-item">
+              <span class="place-icon">🛕</span>
+              <span class="place-name">
+                Prem Mandir
+                <span class="note">Illuminated after 7 PM — the lights make it otherworldly beautiful <span class="highlight-badge">Must See</span></span>
+              </span>
+            </li>
+            <li class="place-item">
+              <span class="place-icon">🪈</span>
+              <span class="place-name">
+                Banke Bihari Temple
+                <span class="note">Most beloved deity of Vrindavan · arrive before 8 PM · experience the aarti</span>
+              </span>
+            </li>
+          </ul>
+          <div class="info-card">
+            🌙 After aarti at Banke Bihari, wind down with dinner at a dhaba near the temple street — Dal Baati or Chaat is a must!
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">
+        <span class="num">2</span>
+        <span class="lbl">Day</span>
+      </div>
+      <div class="day-meta">
+        <h2>Govardhan & Barsana</h2>
+        <span class="date-tag">21 March 2025 · Friday</span>
+      </div>
+    </div>
+
+    <div class="timeline">
+
+      <!-- GOVARDHAN -->
+      <div class="time-slot">
+        <div class="time-label">
+          <span class="badge badge-morning">🌄 Morning</span>
+          <span class="time-text">Early Start</span>
+        </div>
+        <div class="slot-content">
+          <ul class="place-list">
+            <li class="place-item">
+              <span class="place-icon">⛰️</span>
+              <span class="place-name">
+                Govardhan Parikrama <span class="highlight-badge">Must Do</span>
+                <span class="note">~21 km parikrama via e-rickshaw · circumambulation of the sacred Govardhan Hill · takes 3–4 hrs</span>
+              </span>
+            </li>
+          </ul>
+          <div class="info-card">
+            🛺 Hire e-rickshaw from Govardhan bus stand — negotiate for full parikrama round trip. Key stops: Manasi Ganga, Mukut Mukut, Dan Ghati, Kusum Sarovar.
+          </div>
+        </div>
+      </div>
+
+      <!-- BARSANA -->
+      <div class="time-slot">
+        <div class="time-label">
+          <span class="badge badge-afternoon">🌸 Midday</span>
+          <span class="time-text">Afternoon</span>
+        </div>
+        <div class="slot-content">
+          <ul class="place-list">
+            <li class="place-item">
+              <span class="place-icon">🛕</span>
+              <span class="place-name">
+                Kirti Mandir
+                <span class="note">Birthplace temple of Radha ji's mother Kirti · base of Barsana hill</span>
+              </span>
+            </li>
+            <li class="place-item">
+              <span class="place-icon">🛕</span>
+              <span class="place-name">
+                Radha Rani Temple (Ladli Ji)
+                <span class="note">Atop Barsana hill · breathtaking views · heart of Radharani's kingdom</span>
+              </span>
+            </li>
+            <li class="place-item">
+              <span class="place-icon">🚶</span>
+              <span class="place-name">
+                Barsana Parikrama
+                <span class="note">Short parikrama of the four hills of Barsana · scenic & spiritually charged</span>
+              </span>
+            </li>
+            <li class="place-item">
+              <span class="place-icon">🌳</span>
+              <span class="place-name">
+                Ghevar Van <span class="highlight-badge">Most Important</span>
+                <span class="note">A forest grove of immense significance near Barsana · deeply sacred spot · do not miss under any circumstance</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RETURN -->
+      <div class="time-slot">
+        <div class="time-label">
+          <span class="badge badge-evening">🌇 Evening</span>
+          <span class="time-text">Return</span>
+        </div>
+        <div class="slot-content">
+          <ul class="place-list">
+            <li class="place-item">
+              <span class="place-icon">🛺</span>
+              <span class="place-name">
+                Return to Vrindavan
+                <span class="note">Head back from Barsana · relax, freshen up, evening aarti at ghat</span>
+              </span>
+            </li>
+          </ul>
+          <div class="info-card">
+            🍽️ Have dinner near the Vrindavan temple area. Try the <em>rabri</em> and <em>lassi</em> here — some of the best in the region.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-block">
+    <div class="day-header">
+      <div class="day-number">
+        <span class="num">3</span>
+        <span class="lbl">Day</span>
+      </div>
+      <div class="day-meta">
+        <h2>Mathura & Gokul</h2>
+        <span class="date-tag">22 March 2025 · Saturday</span>
+      </div>
+    </div>
+
+    <div class="timeline">
+
+      <!-- MATHURA -->
+      <div class="time-slot">
+        <div class="time-label">
+          <span class="badge badge-morning">🌅 Morning</span>
+          <span class="time-text">Mathura</span>
+        </div>
+        <div class="slot-content">
+          <ul class="place-list">
+            <li class="place-item">
+              <span class="place-icon">🛕</span>
+              <span class="place-name">
+                Krishna Janmabhoomi <span class="highlight-badge">Must Do</span>
+                <span class="note">The sacred birth site of Lord Krishna · Keshav Dev Temple & Shahi Idgah complex · arrive early to avoid queues</span>
+              </span>
+            </li>
+          </ul>
+          <div class="info-card">
+            🔐 No phones or cameras allowed inside Janmabhoomi complex. Deposit at the counter. Security check is thorough — carry only essentials.
+          </div>
+        </div>
+      </div>
+
+      <!-- GOKUL -->
+      <div class="time-slot">
+        <div class="time-label">
+          <span class="badge badge-afternoon">🌿 Afternoon</span>
+          <span class="time-text">Gokul</span>
+        </div>
+        <div class="slot-content">
+          <ul class="place-list">
+            <li class="place-item">
+              <span class="place-icon">🏞️</span>
+              <span class="place-name">
+                Raman Reti
+                <span class="note">Sacred sandy ground where Krishna played as a child · incredibly peaceful · Swaminarayan temple nearby</span>
+              </span>
+            </li>
+            <li class="place-item">
+              <span class="place-icon">🛕</span>
+              <span class="place-name">
+                Gokul Temples
+                <span class="note">Nand Bhavan (Nanda's home), Brahmand Ghat · where Yashoda fed Krishna the universe</span>
+              </span>
+            </li>
+          </ul>
+          <div class="info-card">
+            🛺 Gokul is ~15 km from Mathura. Auto or tempo is easiest. The town is quiet and beautiful — Raman Reti is best visited barefoot, feel the sacred sand.
+          </div>
+        </div>
+      </div>
+
+      <!-- RETURN -->
+      <div class="time-slot">
+        <div class="time-label">
+          <span class="badge badge-evening">🌆 Evening</span>
+          <span class="time-text">Wrap Up</span>
+        </div>
+        <div class="slot-content">
+          <ul class="place-list">
+            <li class="place-item">
+              <span class="place-icon">🛕</span>
+              <span class="place-name">
+                Return to Vrindavan
+                <span class="note">Final evening · last aarti at Banke Bihari or Yamuna Ghat · buy souvenirs, prasad</span>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day-block" style="border-bottom: none;">
+    <div class="day-header">
+      <div class="day-number" style="background: var(--muted);">
+        <span class="num">4</span>
+        <span class="lbl">Day</span>
+      </div>
+      <div class="day-meta">
+        <h2>Departure</h2>
+        <span class="date-tag">23 March 2025 · Sunday · Return Journey</span>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="time-slot">
+        <div class="time-label">
+          <span class="badge badge-all">🚂 Travel</span>
+        </div>
+        <div class="slot-content">
+          <ul class="place-list">
+            <li class="place-item">
+              <span class="place-icon">🙏</span>
+              <span class="place-name">
+                Final Darshan & Departure
+                <span class="note">Morning darshan if time permits · collect prasad & mathura peda boxes · head to Mathura Junction</span>
+              </span>
+            </li>
+          </ul>
+          <div class="info-card">
+            🛍️ Don't forget: Mathura Peda (packed boxes), Tulsi malas, Gopi Chandan, and Panchamrit packets make wonderful gifts. Pick up from shops near Banke Bihari temple lane.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="om">ॐ</span>
+  <p>
+    राधे राधे · हरे कृष्ण हरे कृष्ण · कृष्ण कृष्ण हरे हरे<br>
+    <span style="font-size:0.8rem; margin-top:0.5rem; display:block; opacity:0.4;">
+      May your Yatra be filled with divine grace & blessings · Vrindavan Yatra 2025
+    </span>
+  </p>
+</footer>
+
+</body>
+</html>
